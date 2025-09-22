@@ -7,7 +7,7 @@ const ProfileSection = () => {
       <div className="relative">
         <div className="neon-purple rounded-full p-1 transition-smooth">
           <img
-            src={profileImage}
+            src={`${profileImage}?t=${Date.now()}`}
             alt="Pruuingoo Profile"
             className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-neon-purple"
           />
