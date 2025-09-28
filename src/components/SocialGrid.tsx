@@ -70,7 +70,9 @@ const SocialGrid = () => {
   };
 
   const copyToClipboard = (text: string) => {
-    navigator.clipboard.writeText(text);
+    // Remove 'mailto:' prefix for copy action
+    const cleanText = text.startsWith('mailto:') ? text.replace('mailto:', '') : text;
+    navigator.clipboard.writeText(cleanText);
     toast({
       title: "Copied!",
       description: "Link copied to clipboard",
@@ -80,6 +82,11 @@ const SocialGrid = () => {
 
   const openLink = (url: string) => {
     window.open(url, '_blank');
+  };
+
+  const getDisplayUrl = (url: string) => {
+    // Remove 'mailto:' prefix for display
+    return url.startsWith('mailto:') ? url.replace('mailto:', '') : url;
   };
 
   return (
@@ -133,9 +140,9 @@ const SocialGrid = () => {
               )}
             </DialogTitle>
           </DialogHeader>
-          <div className="flex items-center space-x-2">
+           <div className="flex items-center space-x-2">
             <Input
-              value={selectedModal?.url || ''}
+              value={selectedModal ? getDisplayUrl(selectedModal.url) : ''}
               readOnly
               className="flex-1 bg-input"
             />
