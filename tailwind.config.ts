@@ -16,6 +16,7 @@ export default {
       fontFamily: {
         'poppins': ['Poppins', 'system-ui', 'sans-serif'],
         'inter': ['Inter', 'system-ui', 'sans-serif'],
+        'gluten': ['Gluten', 'system-ui', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",

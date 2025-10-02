@@ -15,7 +15,7 @@ const ProfileSection = () => {
       </div>
 
       {/* Name */}
-      <h1 className="text-4xl md:text-5xl font-bold font-poppins text-center bg-gradient-to-r from-neon-purple to-neon-blue bg-clip-text text-transparent">
+      <h1 className="text-4xl md:text-5xl font-bold font-gluten text-center bg-gradient-to-r from-neon-purple to-neon-blue bg-clip-text text-transparent">
         Pruuingoo
       </h1>
     </div>
