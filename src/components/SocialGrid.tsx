@@ -29,7 +29,7 @@ const socialLinks: SocialLink[] = [
   { name: 'Twitch', icon: 'https://cdn.simpleicons.org/twitch/ffffff', url: 'https://twitch.tv/pruuingoo', color: '#9146FF' },
   { name: 'GitHub', icon: 'https://cdn.simpleicons.org/github/ffffff', url: 'https://github.com/pruuingoo', color: '#181717' },
   { name: 'TikTok', icon: 'https://cdn.simpleicons.org/tiktok/ffffff', url: 'https://tiktok.com/@pruuingoo', color: '#000000' },
-  { name: 'Email', icon: 'https://cdn.simpleicons.org/gmail/ffffff', url: 'mailto:pruuingoo@aol.com', color: '#EA4335' },
+  { name: 'Email', icon: 'https://cdn.simpleicons.org/gmail/ffffff', url: 'mailto:me@pruuingoo.site', color: '#EA4335' },
 ];
 
 const instagramOptions = [
