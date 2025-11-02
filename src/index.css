@@ -41,14 +41,18 @@
     /* Custom design tokens */
     --neon-purple: 260 75% 65%;
     --neon-blue: 240 85% 70%;
+    --neon-pink: 330 85% 70%;
+    --neon-cyan: 190 85% 70%;
     --gradient-main: linear-gradient(135deg, hsl(260 75% 65%) 0%, hsl(240 85% 70%) 100%);
     --gradient-overlay: linear-gradient(135deg, hsl(260 75% 65% / 0.3) 0%, hsl(240 85% 70% / 0.3) 100%);
-    --blur-glass: hsl(220 25% 15% / 0.7);
-    --blur-glass-border: hsl(260 75% 65% / 0.3);
+    --blur-glass: hsl(220 25% 12% / 0.5);
+    --blur-glass-border: hsl(260 75% 65% / 0.2);
     
     /* Shadows and glows */
     --shadow-neon-purple: 0 0 20px hsl(260 75% 65% / 0.5), 0 0 40px hsl(260 75% 65% / 0.3);
     --shadow-neon-blue: 0 0 20px hsl(240 85% 70% / 0.5), 0 0 40px hsl(240 85% 70% / 0.3);
+    --shadow-neon-pink: 0 0 20px hsl(330 85% 70% / 0.5), 0 0 40px hsl(330 85% 70% / 0.3);
+    --shadow-neon-cyan: 0 0 20px hsl(190 85% 70% / 0.5), 0 0 40px hsl(190 85% 70% / 0.3);
     --shadow-soft: 0 8px 32px hsl(220 25% 8% / 0.4);
 
     /* Animations */
@@ -78,7 +82,7 @@
 @layer components {
   /* Glass morphism containers */
   .glass-container {
-    @apply backdrop-blur-md border rounded-2xl;
+    @apply backdrop-blur-xl border rounded-2xl;
     background: var(--blur-glass);
     border-color: var(--blur-glass-border);
     box-shadow: var(--shadow-soft);
@@ -91,6 +95,14 @@
 
   .neon-blue {
     box-shadow: var(--shadow-neon-blue);
+  }
+
+  .neon-pink {
+    box-shadow: var(--shadow-neon-pink);
+  }
+
+  .neon-cyan {
+    box-shadow: var(--shadow-neon-cyan);
   }
 
   /* Smooth transitions */
