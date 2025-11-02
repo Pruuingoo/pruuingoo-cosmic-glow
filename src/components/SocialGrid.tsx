@@ -25,6 +25,7 @@ const socialLinks: SocialLink[] = [
   { name: 'AniList', icon: 'https://cdn.simpleicons.org/anilist/ffffff', url: 'https://anilist.co/user/pruuingoo', color: '#02A9FF' },
   { name: 'Pinterest', icon: 'https://cdn.simpleicons.org/pinterest/ffffff', url: 'https://pinterest.com/OttrxZPqu', color: '#BD081C' },
   { name: 'X', icon: 'https://cdn.simpleicons.org/x/ffffff', url: 'https://pastebin.com/pyz2Eeur', color: '#000000' },
+  { name: 'Bluesky', icon: 'https://cdn.simpleicons.org/bluesky/ffffff', url: 'https://bsky.app/profile/pruuingoo.bsky.social', color: '#1185FE' },
   { name: 'Reddit', icon: 'https://cdn.simpleicons.org/reddit/ffffff', url: 'https://reddit.com/user/Tasty-Replacement310/', color: '#FF4500' },
   { name: 'Twitch', icon: 'https://cdn.simpleicons.org/twitch/ffffff', url: 'https://twitch.tv/pruuingoo', color: '#9146FF' },
   { name: 'GitHub', icon: 'https://cdn.simpleicons.org/github/ffffff', url: 'https://github.com/pruuingoo', color: '#181717' },
