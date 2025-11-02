@@ -1,4 +1,4 @@
-import profileImage from '@/assets/profile-updated.png';
+import profileImage from '@/assets/profile-new.jpg';
 
 const ProfileSection = () => {
   return (
