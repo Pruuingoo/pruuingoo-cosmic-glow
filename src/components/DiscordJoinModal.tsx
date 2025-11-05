@@ -39,9 +39,9 @@ const DiscordJoinModal = ({ open, onOpenChange }: DiscordJoinModalProps) => {
             {/* Join Button */}
             <Button
               onClick={handleJoin}
-              className="w-full bg-[#5865f2] hover:bg-[#4752c4] text-white font-semibold"
+              className="w-full bg-[#5865f2] hover:bg-[#4752c4] text-white font-semibold relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-b before:from-white/20 before:to-transparent before:pointer-events-none"
             >
-              Join
+              <span className="relative z-10">Join</span>
             </Button>
           </div>
         </div>
