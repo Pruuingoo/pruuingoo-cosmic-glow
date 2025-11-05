@@ -37,24 +37,12 @@ const DiscordJoinModal = ({ open, onOpenChange }: DiscordJoinModalProps) => {
             </h2>
 
             {/* Join Button */}
-            <div className="relative inline-block w-full">
-              <Button
-                onClick={handleJoin}
-                className="w-full bg-[#5865f2] hover:bg-[#4752c4] text-white font-semibold relative group overflow-hidden"
-              >
-                <span className="relative z-10">Join</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-              </Button>
-              {/* Spinning outline */}
-              <div className="absolute inset-0 rounded-md overflow-hidden pointer-events-none">
-                <div className="absolute inset-0 border-2 border-transparent rounded-md bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400 bg-clip-border animate-spin" style={{ 
-                  WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                  WebkitMaskComposite: 'xor',
-                  maskComposite: 'exclude',
-                  padding: '2px'
-                }} />
-              </div>
-            </div>
+            <Button
+              onClick={handleJoin}
+              className="w-full bg-[#5865f2] hover:bg-[#4752c4] text-white font-semibold"
+            >
+              Join
+            </Button>
           </div>
         </div>
       </DialogContent>
