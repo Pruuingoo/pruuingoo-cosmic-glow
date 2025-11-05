@@ -21,9 +21,9 @@ const DiscordJoinModal = ({ open, onOpenChange }: DiscordJoinModalProps) => {
           
           {/* Server Icon */}
           <div className="absolute left-1/2 -translate-x-1/2 top-8">
-            <div className="w-20 h-20 rounded-full border-4 border-[#313338] overflow-hidden animate-pulse">
+            <div className="w-20 h-20 rounded-full border-4 border-[#313338] overflow-hidden">
               <img 
-                src={nytharcIcon} 
+                src={nytharcIcon}
                 alt="Nytharc Server" 
                 className="w-full h-full object-cover"
               />
@@ -32,31 +32,29 @@ const DiscordJoinModal = ({ open, onOpenChange }: DiscordJoinModalProps) => {
 
           {/* Content */}
           <div className="pt-14 pb-6 px-4 text-center">
-            <h2 className="text-white text-2xl font-bold mb-2 animate-fade-in">
+            <h2 className="text-white text-2xl font-bold mb-6 animate-fade-in">
               Nytharc
             </h2>
-            
-            <div className="flex items-center justify-center gap-2 text-[#b5bac1] text-sm mb-6">
-              <div className="flex items-center gap-1">
-                <div className="w-2 h-2 rounded-full bg-green-500" />
-                <span>Online</span>
-              </div>
-              <span>•</span>
-              <div className="flex items-center gap-1">
-                <div className="w-2 h-2 rounded-full bg-gray-500" />
-                <span>Members</span>
-              </div>
-            </div>
 
             {/* Join Button */}
-            <Button
-              onClick={handleJoin}
-              className="w-full bg-[#5865f2] hover:bg-[#4752c4] text-white font-semibold relative group overflow-hidden"
-            >
-              <span className="relative z-10">Join</span>
-              <div className="absolute inset-0 border-2 border-blue-400 rounded-md animate-pulse opacity-50 group-hover:opacity-75" />
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-            </Button>
+            <div className="relative inline-block w-full">
+              <Button
+                onClick={handleJoin}
+                className="w-full bg-[#5865f2] hover:bg-[#4752c4] text-white font-semibold relative group overflow-hidden"
+              >
+                <span className="relative z-10">Join</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+              </Button>
+              {/* Spinning outline */}
+              <div className="absolute inset-0 rounded-md overflow-hidden pointer-events-none">
+                <div className="absolute inset-0 border-2 border-transparent rounded-md bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400 bg-clip-border animate-spin" style={{ 
+                  WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                  WebkitMaskComposite: 'xor',
+                  maskComposite: 'exclude',
+                  padding: '2px'
+                }} />
+              </div>
+            </div>
           </div>
         </div>
       </DialogContent>

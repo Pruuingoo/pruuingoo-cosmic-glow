@@ -33,10 +33,10 @@ const Index = () => {
         </div>
       </div>
 
-      {/* Discord Join Button - Fixed Position */}
+      {/* Discord Join Button - Fixed Position Centered Bottom */}
       <Button
         onClick={() => setDiscordModalOpen(true)}
-        className="fixed bottom-6 right-6 z-30 bg-[#5865f2] hover:bg-[#4752c4] text-white font-semibold px-6 py-3 rounded-full shadow-lg animate-pulse hover:animate-none transition-all hover:scale-105"
+        className="fixed bottom-6 left-1/2 -translate-x-1/2 z-30 bg-[#5865f2] hover:bg-[#4752c4] text-white font-semibold px-6 py-3 rounded-full shadow-lg animate-pulse hover:animate-none transition-all hover:scale-105"
       >
         <span className="hidden sm:inline">Join Nytharc Discord Server</span>
         <span className="sm:hidden">Join Nytharc</span>
