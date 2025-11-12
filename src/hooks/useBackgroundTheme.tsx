@@ -28,9 +28,9 @@ export const getThemeColors = (theme: BackgroundTheme) => {
         accentColor: 'text-pink-400',
       }
     : {
-        glowClass: 'neon-cyan',
-        borderClass: 'border-cyan-400',
-        textGradient: 'from-cyan-400 via-blue-400 to-purple-400',
-        accentColor: 'text-cyan-400',
+        glowClass: 'neon-purple',
+        borderClass: 'border-gray-400',
+        textGradient: 'from-gray-300 via-gray-400 to-gray-500',
+        accentColor: 'text-gray-300',
       };
 };
