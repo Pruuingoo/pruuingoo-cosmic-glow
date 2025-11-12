@@ -23,6 +23,17 @@ const Index = () => {
             <div className="flex-1 lg:sticky lg:top-8">
               <ProfileSection />
               <AboutSection />
+              
+              {/* Discord Join Button */}
+              <div className="w-full max-w-2xl mx-auto mb-12">
+                <Button
+                  onClick={() => setDiscordModalOpen(true)}
+                  className="w-full bg-[#5865f2] hover:bg-[#4752c4] text-white font-semibold px-6 py-3 rounded-full shadow-lg relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-b before:from-white/20 before:to-transparent before:pointer-events-none"
+                >
+                  <span className="hidden sm:inline relative z-10">Join Nytharc Discord Server</span>
+                  <span className="sm:hidden relative z-10">Join Nytharc</span>
+                </Button>
+              </div>
             </div>
             
             {/* Right Side: Social Links */}
@@ -32,15 +43,6 @@ const Index = () => {
           </div>
         </div>
       </div>
-
-      {/* Discord Join Button - Fixed Position Centered Bottom */}
-      <Button
-        onClick={() => setDiscordModalOpen(true)}
-        className="fixed bottom-6 left-1/2 -translate-x-1/2 z-30 bg-[#5865f2] hover:bg-[#4752c4] text-white font-semibold px-6 py-3 rounded-full shadow-lg relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-b before:from-white/20 before:to-transparent before:pointer-events-none"
-      >
-        <span className="hidden sm:inline relative z-10">Join Nytharc Discord Server</span>
-        <span className="sm:hidden relative z-10">Join Nytharc</span>
-      </Button>
 
       {/* Discord Join Modal */}
       <DiscordJoinModal 
