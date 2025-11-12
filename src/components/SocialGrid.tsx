@@ -23,6 +23,8 @@ const socialLinks: SocialLink[] = [
   { name: 'Spotify', icon: 'https://cdn.simpleicons.org/spotify/ffffff', url: 'https://open.spotify.com/user/31pjdkh6gumg7gsnud2zxgzfaswi', color: '#1DB954' },
   { name: 'SoundCloud', icon: 'https://cdn.simpleicons.org/soundcloud/ffffff', url: 'https://soundcloud.com/pruuingoo', color: '#FF5500' },
   { name: 'AniList', icon: 'https://cdn.simpleicons.org/anilist/ffffff', url: 'https://anilist.co/user/pruuingoo', color: '#02A9FF' },
+  { name: 'MyAnimeList', icon: 'https://cdn.simpleicons.org/myanimelist/ffffff', url: 'https://myanimelist.net/profile/Pruuingoo', color: '#2E51A2' },
+  { name: 'Kitsu', icon: 'https://cdn.simpleicons.org/kitsu/ffffff', url: 'https://kitsu.app/users/1653421', color: '#F75239' },
   { name: 'Pinterest', icon: 'https://cdn.simpleicons.org/pinterest/ffffff', url: 'https://pinterest.com/OttrxZPqu', color: '#BD081C' },
   { name: 'X', icon: 'https://cdn.simpleicons.org/x/ffffff', url: 'https://pastebin.com/pyz2Eeur', color: '#000000' },
   { name: 'Bluesky', icon: 'https://cdn.simpleicons.org/bluesky/ffffff', url: 'https://bsky.app/profile/pruuingoo.bsky.social', color: '#1185FE' },
