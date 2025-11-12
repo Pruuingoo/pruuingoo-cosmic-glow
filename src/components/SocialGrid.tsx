@@ -96,13 +96,13 @@ const SocialGrid = () => {
     <TooltipProvider>
       <div className="w-full max-w-4xl mx-auto mt-8">
         <div className="glass-container p-8">
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-4 gap-6 place-items-center">
             {socialLinks.map((social) => (
               <Tooltip key={social.name}>
                 <TooltipTrigger asChild>
                   <button
                     onClick={() => handleSocialClick(social)}
-                    className="social-icon w-16 h-16 rounded-full p-3 backdrop-blur-sm border transition-all duration-300"
+                    className="social-icon w-16 h-16 rounded-full p-3 backdrop-blur-sm border transition-all duration-300 flex items-center justify-center"
                     style={{
                       borderColor: `${social.color}40`,
                       boxShadow: `0 0 20px ${social.color}30`,
