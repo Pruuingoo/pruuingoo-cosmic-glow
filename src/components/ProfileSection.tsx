@@ -1,7 +1,12 @@
 import profileImage from '@/assets/profile-new.jpg';
 import { useBackgroundTheme, getThemeColors } from '@/hooks/useBackgroundTheme';
+import { Button } from '@/components/ui/button';
 
-const ProfileSection = () => {
+interface ProfileSectionProps {
+  onDiscordClick: () => void;
+}
+
+const ProfileSection = ({ onDiscordClick }: ProfileSectionProps) => {
   const theme = useBackgroundTheme();
   const colors = getThemeColors(theme);
 
@@ -22,6 +27,17 @@ const ProfileSection = () => {
       <h1 className={`text-4xl md:text-5xl font-bold font-gluten text-center bg-gradient-to-r ${colors.textGradient} bg-clip-text text-transparent transition-smooth`}>
         Pruuingoo
       </h1>
+
+      {/* Discord Button - Only show in landscape mode */}
+      {theme === 'landscape' && (
+        <Button
+          onClick={onDiscordClick}
+          className="bg-[#5865f2] hover:bg-[#4752c4] text-white font-semibold px-6 py-3 rounded-full shadow-lg relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-b before:from-white/20 before:to-transparent before:pointer-events-none"
+        >
+          <span className="hidden sm:inline relative z-10">Join Nytharc Discord Server</span>
+          <span className="sm:hidden relative z-10">Join Nytharc</span>
+        </Button>
+      )}
     </div>
   );
 };
