@@ -21,8 +21,8 @@ const Index = () => {
           <div className="flex flex-col lg:flex-row lg:gap-8 lg:items-start">
             {/* Left Side: Profile + About */}
             <div className="flex-1 lg:sticky lg:top-8">
-              <ProfileSection onDiscordClick={() => setDiscordModalOpen(true)} />
-              <AboutSection />
+              <ProfileSection />
+              <AboutSection onDiscordClick={() => setDiscordModalOpen(true)} />
             </div>
             
             {/* Right Side: Social Links */}
