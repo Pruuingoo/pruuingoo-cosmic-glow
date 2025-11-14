@@ -21,8 +21,8 @@ const Index = () => {
           <div className="flex flex-col lg:flex-row lg:gap-8 lg:items-start">
             {/* Left Side: Profile + About */}
             <div className="flex-1 lg:sticky lg:top-8">
-              <ProfileSection />
-              <AboutSection />
+              <ProfileSection onDiscordClick={() => setDiscordModalOpen(true)} />
+              <AboutSection onDiscordClick={() => setDiscordModalOpen(true)} />
             </div>
             
             {/* Right Side: Social Links */}
@@ -32,15 +32,6 @@ const Index = () => {
           </div>
         </div>
       </div>
-
-      {/* Discord Join Button - Fixed Position Centered Bottom */}
-      <Button
-        onClick={() => setDiscordModalOpen(true)}
-        className="fixed bottom-6 left-1/2 -translate-x-1/2 z-30 bg-[#5865f2] hover:bg-[#4752c4] text-white font-semibold px-6 py-3 rounded-full shadow-lg relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-b before:from-white/20 before:to-transparent before:pointer-events-none"
-      >
-        <span className="hidden sm:inline relative z-10">Join Nytharc Discord Server</span>
-        <span className="sm:hidden relative z-10">Join Nytharc</span>
-      </Button>
 
       {/* Discord Join Modal */}
       <DiscordJoinModal 
