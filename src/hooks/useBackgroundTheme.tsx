@@ -22,10 +22,10 @@ export const useBackgroundTheme = () => {
 export const getThemeColors = (theme: BackgroundTheme) => {
   return theme === 'portrait' 
     ? {
-        glowClass: 'neon-purple',
-        borderClass: 'border-amber-600',
-        textGradient: 'from-amber-400 via-orange-300 to-stone-400',
-        accentColor: 'text-amber-400',
+        glowClass: 'neon-blue',
+        borderClass: 'border-cyan-400',
+        textGradient: 'from-cyan-400 via-blue-400 to-purple-400',
+        accentColor: 'text-cyan-400',
       }
     : {
         glowClass: 'neon-purple',
