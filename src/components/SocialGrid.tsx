@@ -18,7 +18,7 @@ const socialLinks: SocialLink[] = [
   { name: 'Discord', icon: 'https://cdn.simpleicons.org/discord/ffffff', url: 'https://discord.com/users/1090665275986296904', color: '#5865F2' },
   { name: 'Instagram', icon: 'https://cdn.simpleicons.org/instagram/ffffff', url: 'instagram', color: '#E4405F' },
   { name: 'Roblox', icon: 'https://cdn.simpleicons.org/roblox/ffffff', url: 'roblox', color: '#00A2FF' },
-  { name: 'YouTube', icon: 'https://cdn.simpleicons.org/youtube/ffffff', url: 'https://youtube.com/@Pruuingoo', color: '#FF0000' },
+  { name: 'YouTube', icon: 'https://cdn.simpleicons.org/youtube/ffffff', url: 'youtube', color: '#FF0000' },
   { name: 'YT Music', icon: 'https://cdn.simpleicons.org/youtubemusic/ffffff', url: 'https://music.youtube.com/@nowepruim', color: '#FF0000' },
   { name: 'Spotify', icon: 'https://cdn.simpleicons.org/spotify/ffffff', url: 'https://open.spotify.com/user/31pjdkh6gumg7gsnud2zxgzfaswi', color: '#1DB954' },
   { name: 'SoundCloud', icon: 'https://cdn.simpleicons.org/soundcloud/ffffff', url: 'https://soundcloud.com/pruuingoo', color: '#FF5500' },
@@ -45,9 +45,14 @@ const robloxOptions = [
   { name: 'Roblox (Alt)', url: 'https://www.roblox.com/users/8808804903/profile', type: 'secondary' },
 ];
 
+const youtubeOptions = [
+  { name: 'Pruuingoo', url: 'https://youtube.com/@Pruuingoo', type: 'primary' },
+  { name: 'Pruuingoo Sounds', url: 'https://youtube.com/@pruuingoobutpruim', type: 'secondary' },
+];
+
 const SocialGrid = () => {
   const [selectedModal, setSelectedModal] = useState<SocialLink | null>(null);
-  const [choiceModal, setChoiceModal] = useState<'instagram' | 'roblox' | null>(null);
+  const [choiceModal, setChoiceModal] = useState<'instagram' | 'roblox' | 'youtube' | null>(null);
   const { toast } = useToast();
 
   const handleSocialClick = (social: SocialLink) => {
@@ -55,6 +60,8 @@ const SocialGrid = () => {
       setChoiceModal('instagram');
     } else if (social.url === 'roblox') {
       setChoiceModal('roblox');
+    } else if (social.url === 'youtube') {
+      setChoiceModal('youtube');
     } else {
       setSelectedModal(social);
     }
@@ -62,13 +69,21 @@ const SocialGrid = () => {
 
   const handleChoiceClick = (option: { name: string; url: string; type: string }) => {
     setChoiceModal(null);
+    const iconMap = {
+      instagram: 'https://cdn.simpleicons.org/instagram/ffffff',
+      roblox: 'https://cdn.simpleicons.org/roblox/ffffff',
+      youtube: 'https://cdn.simpleicons.org/youtube/ffffff',
+    };
+    const colorMap = {
+      instagram: '#E4405F',
+      roblox: '#00A2FF',
+      youtube: '#FF0000',
+    };
     setSelectedModal({
       name: option.name,
-      icon: choiceModal === 'instagram' 
-        ? 'https://cdn.simpleicons.org/instagram/ffffff' 
-        : 'https://cdn.simpleicons.org/roblox/ffffff',
+      icon: iconMap[choiceModal as keyof typeof iconMap],
       url: option.url,
-      color: choiceModal === 'instagram' ? '#E4405F' : '#00A2FF',
+      color: colorMap[choiceModal as keyof typeof colorMap],
     });
   };
 
@@ -184,11 +199,11 @@ const SocialGrid = () => {
         <DialogContent className="sm:max-w-md bg-card border-border">
           <DialogHeader>
             <DialogTitle className="text-center">
-              Choose {choiceModal === 'instagram' ? 'Instagram' : 'Roblox'} Account
+              Choose {choiceModal === 'instagram' ? 'Instagram' : choiceModal === 'roblox' ? 'Roblox' : 'YouTube'} Account
             </DialogTitle>
           </DialogHeader>
           <div className="flex flex-col gap-3">
-            {(choiceModal === 'instagram' ? instagramOptions : robloxOptions).map((option) => (
+            {(choiceModal === 'instagram' ? instagramOptions : choiceModal === 'roblox' ? robloxOptions : youtubeOptions).map((option) => (
               <Button
                 key={option.name}
                 onClick={() => handleChoiceClick(option)}
