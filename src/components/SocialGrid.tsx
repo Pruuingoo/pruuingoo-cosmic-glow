@@ -20,7 +20,7 @@ const socialLinks: SocialLink[] = [
   { name: 'Roblox', icon: 'https://cdn.simpleicons.org/roblox/ffffff', url: 'roblox', color: '#00A2FF' },
   { name: 'YouTube', icon: 'https://cdn.simpleicons.org/youtube/ffffff', url: 'youtube', color: '#FF0000' },
   { name: 'YT Music', icon: 'https://cdn.simpleicons.org/youtubemusic/ffffff', url: 'https://music.youtube.com/@nowepruim', color: '#FF0000' },
-  { name: 'Spotify', icon: 'https://cdn.simpleicons.org/spotify/ffffff', url: 'https://open.spotify.com/user/31pjdkh6gumg7gsnud2zxgzfaswi', color: '#1DB954' },
+  { name: 'Spotify', icon: 'https://cdn.simpleicons.org/spotify/ffffff', url: 'https://open.spotify.com/user/31ppymothvlza2wailufkvr2oojy', color: '#1DB954' },
   { name: 'SoundCloud', icon: 'https://cdn.simpleicons.org/soundcloud/ffffff', url: 'https://soundcloud.com/pruuingoo', color: '#FF5500' },
   { name: 'AniList', icon: 'https://cdn.simpleicons.org/anilist/ffffff', url: 'https://anilist.co/user/pruuingoo', color: '#02A9FF' },
   { name: 'MyAnimeList', icon: 'https://cdn.simpleicons.org/myanimelist/ffffff', url: 'https://myanimelist.net/profile/Pruuingoo', color: '#2E51A2' },
