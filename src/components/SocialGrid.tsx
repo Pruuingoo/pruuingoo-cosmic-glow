@@ -88,7 +88,6 @@ const SocialGrid = () => {
   };
 
   const copyToClipboard = (text: string) => {
-    // Remove 'mailto:' prefix for copy action
     const cleanText = text.startsWith('mailto:') ? text.replace('mailto:', '') : text;
     navigator.clipboard.writeText(cleanText);
     toast({
@@ -103,40 +102,42 @@ const SocialGrid = () => {
   };
 
   const getDisplayUrl = (url: string) => {
-    // Remove 'mailto:' prefix for display
     return url.startsWith('mailto:') ? url.replace('mailto:', '') : url;
   };
 
   return (
     <TooltipProvider>
-      <div className="w-full max-w-4xl mx-auto mt-8">
+      <div className="w-full max-w-4xl mx-auto mt-8 opacity-0 animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
         <div className="glass-container p-8">
           <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-4 gap-6 place-items-center">
-            {socialLinks.map((social) => (
+            {socialLinks.map((social, index) => (
               <Tooltip key={social.name}>
                 <TooltipTrigger asChild>
                   <button
                     onClick={() => handleSocialClick(social)}
-                    className="social-icon w-16 h-16 rounded-full p-3 backdrop-blur-sm border transition-all duration-300 flex items-center justify-center"
+                    className="social-icon w-16 h-16 rounded-full p-3 backdrop-blur-sm border flex items-center justify-center opacity-0 animate-bounce-in btn-press"
                     style={{
                       borderColor: `${social.color}40`,
                       boxShadow: `0 0 20px ${social.color}30`,
+                      animationDelay: `${0.6 + index * 0.05}s`,
                     }}
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.boxShadow = `0 0 30px ${social.color}60`;
+                      e.currentTarget.style.boxShadow = `0 0 40px ${social.color}70, 0 0 60px ${social.color}40`;
+                      e.currentTarget.style.borderColor = `${social.color}80`;
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.boxShadow = `0 0 20px ${social.color}30`;
+                      e.currentTarget.style.borderColor = `${social.color}40`;
                     }}
                   >
                     <img 
                       src={social.icon} 
                       alt={social.name}
-                      className="w-full h-full object-contain"
+                      className="w-full h-full object-contain transition-transform duration-300"
                     />
                   </button>
                 </TooltipTrigger>
-                <TooltipContent side="top">
+                <TooltipContent side="top" className="animate-fade-in-up">
                   <p className="font-medium">{social.name}</p>
                 </TooltipContent>
               </Tooltip>
@@ -147,28 +148,32 @@ const SocialGrid = () => {
 
       {/* Social Link Modal */}
       <Dialog open={!!selectedModal} onOpenChange={() => setSelectedModal(null)}>
-        <DialogContent className="sm:max-w-md bg-card border-border">
+        <DialogContent className="sm:max-w-md bg-card border-border animate-fade-in-scale">
           <DialogHeader>
             <DialogTitle className="flex items-center gap-3">
               {selectedModal && (
                 <>
-                  <img src={selectedModal.icon} alt={selectedModal.name} className="w-8 h-8" />
-                  {selectedModal.name}
+                  <img 
+                    src={selectedModal.icon} 
+                    alt={selectedModal.name} 
+                    className="w-8 h-8 animate-bounce-in" 
+                  />
+                  <span className="animate-fade-in-up">{selectedModal.name}</span>
                 </>
               )}
             </DialogTitle>
           </DialogHeader>
-           <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-2 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
             <Input
               value={selectedModal ? getDisplayUrl(selectedModal.url) : ''}
               readOnly
-              className="flex-1 bg-input"
+              className="flex-1 bg-input transition-all duration-300 focus:ring-2 focus:ring-primary/50"
             />
           </div>
-          <div className="flex gap-3 justify-center">
+          <div className="flex gap-3 justify-center animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
             <Button
               onClick={() => selectedModal && openLink(selectedModal.url)}
-              className="btn-gradient text-white border-0"
+              className="btn-gradient text-white border-0 btn-press hover:scale-105 transition-transform"
             >
               <ExternalLink className="w-4 h-4 mr-2" />
               Open
@@ -176,16 +181,17 @@ const SocialGrid = () => {
             <Button
               onClick={() => selectedModal && copyToClipboard(selectedModal.url)}
               variant="secondary"
+              className="btn-press hover:scale-105 transition-transform"
             >
               <Copy className="w-4 h-4 mr-2" />
               Copy
             </Button>
           </div>
-          <div className="flex justify-center">
+          <div className="flex justify-center animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
             <Button
               variant="outline"
               onClick={() => setSelectedModal(null)}
-              className="border-border hover:bg-muted"
+              className="border-border hover:bg-muted btn-press hover:scale-105 transition-transform"
             >
               <X className="w-4 h-4 mr-2" />
               Close
@@ -196,19 +202,20 @@ const SocialGrid = () => {
 
       {/* Choice Modals */}
       <Dialog open={!!choiceModal} onOpenChange={() => setChoiceModal(null)}>
-        <DialogContent className="sm:max-w-md bg-card border-border">
+        <DialogContent className="sm:max-w-md bg-card border-border animate-fade-in-scale">
           <DialogHeader>
-            <DialogTitle className="text-center">
+            <DialogTitle className="text-center animate-fade-in-down">
               Choose {choiceModal === 'instagram' ? 'Instagram' : choiceModal === 'roblox' ? 'Roblox' : 'YouTube'} Account
             </DialogTitle>
           </DialogHeader>
           <div className="flex flex-col gap-3">
-            {(choiceModal === 'instagram' ? instagramOptions : choiceModal === 'roblox' ? robloxOptions : youtubeOptions).map((option) => (
+            {(choiceModal === 'instagram' ? instagramOptions : choiceModal === 'roblox' ? robloxOptions : youtubeOptions).map((option, index) => (
               <Button
                 key={option.name}
                 onClick={() => handleChoiceClick(option)}
                 variant={option.type === 'primary' ? 'default' : 'secondary'}
-                className={option.type === 'primary' ? 'btn-gradient text-white' : ''}
+                className={`${option.type === 'primary' ? 'btn-gradient text-white' : ''} btn-press hover:scale-[1.02] transition-all duration-300 opacity-0 animate-slide-in-left`}
+                style={{ animationDelay: `${0.1 + index * 0.1}s` }}
               >
                 {option.name}
               </Button>
@@ -216,7 +223,8 @@ const SocialGrid = () => {
             <Button
               variant="outline"
               onClick={() => setChoiceModal(null)}
-              className="border-border hover:bg-muted"
+              className="border-border hover:bg-muted btn-press hover:scale-[1.02] transition-all duration-300 opacity-0 animate-fade-in-up"
+              style={{ animationDelay: '0.4s' }}
             >
               Cancel
             </Button>
