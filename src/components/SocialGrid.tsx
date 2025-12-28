@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Copy, ExternalLink, X } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { useMouseParallax, getParallaxStyle } from '@/hooks/useMouseParallax';
 
 interface SocialLink {
   name: string;
@@ -54,6 +55,7 @@ const SocialGrid = () => {
   const [selectedModal, setSelectedModal] = useState<SocialLink | null>(null);
   const [choiceModal, setChoiceModal] = useState<'instagram' | 'roblox' | 'youtube' | null>(null);
   const { toast } = useToast();
+  const { parallaxOffset } = useMouseParallax(0.4);
 
   const handleSocialClick = (social: SocialLink) => {
     if (social.url === 'instagram') {
@@ -105,9 +107,27 @@ const SocialGrid = () => {
     return url.startsWith('mailto:') ? url.replace('mailto:', '') : url;
   };
 
+  // Calculate row and column for staggered parallax
+  const getIconParallax = (index: number) => {
+    const row = Math.floor(index / 4);
+    const col = index % 4;
+    const multiplier = ((row + col) % 3 + 1) * 0.15;
+    const invert = (row + col) % 2 === 0 ? 1 : -1;
+    return {
+      transform: `translate3d(${parallaxOffset.x * multiplier * invert}px, ${parallaxOffset.y * multiplier * invert}px, 0)`,
+      transition: 'transform 0.15s ease-out',
+    };
+  };
+
   return (
     <TooltipProvider>
-      <div className="w-full max-w-4xl mx-auto mt-8 opacity-0 animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
+      <div 
+        className="w-full max-w-4xl mx-auto mt-8 opacity-0 animate-fade-in-up" 
+        style={{ 
+          ...getParallaxStyle(parallaxOffset, 0.3),
+          animationDelay: '0.5s' 
+        }}
+      >
         <div className="glass-container p-8">
           <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-4 gap-6 place-items-center">
             {socialLinks.map((social, index) => (
@@ -120,6 +140,7 @@ const SocialGrid = () => {
                       borderColor: `${social.color}40`,
                       boxShadow: `0 0 20px ${social.color}30`,
                       animationDelay: `${0.6 + index * 0.05}s`,
+                      ...getIconParallax(index),
                     }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.boxShadow = `0 0 40px ${social.color}70, 0 0 60px ${social.color}40`;
