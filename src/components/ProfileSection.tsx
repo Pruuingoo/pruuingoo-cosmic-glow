@@ -6,20 +6,36 @@ const ProfileSection = () => {
   const colors = getThemeColors(theme);
 
   return (
-    <div className="flex flex-col items-center space-y-6 mb-12">
+    <div className="flex flex-col items-center space-y-6 mb-12 opacity-0 animate-fade-in-up">
       {/* Profile Picture with Neon Glow */}
-      <div className="relative">
-        <div className={`${colors.glowClass} rounded-full p-1 transition-smooth`}>
+      <div className="relative animate-float">
+        {/* Animated glow ring */}
+        <div className="absolute inset-0 rounded-full animate-pulse-glow opacity-50" />
+        
+        <div className={`${colors.glowClass} rounded-full p-1 transition-smooth relative`}>
           <img
             src={profileImage}
             alt="Pruuingoo Profile"
-            className={`w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 ${colors.borderClass} transition-smooth`}
+            className={`w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 ${colors.borderClass} transition-all duration-500 hover:scale-105 hover:rotate-3`}
           />
         </div>
+        
+        {/* Decorative floating orbs */}
+        <div 
+          className="absolute -top-2 -right-2 w-4 h-4 rounded-full bg-gradient-to-r from-neon-purple to-neon-blue animate-float opacity-70"
+          style={{ animationDelay: '0.5s' }}
+        />
+        <div 
+          className="absolute -bottom-1 -left-3 w-3 h-3 rounded-full bg-gradient-to-r from-neon-blue to-neon-purple animate-float opacity-60"
+          style={{ animationDelay: '1s' }}
+        />
       </div>
 
-      {/* Name */}
-      <h1 className={`text-4xl md:text-5xl font-bold font-gluten text-center bg-gradient-to-r ${colors.textGradient} bg-clip-text text-transparent transition-smooth`}>
+      {/* Name with animated gradient */}
+      <h1 
+        className={`text-4xl md:text-5xl font-bold font-gluten text-center bg-gradient-to-r ${colors.textGradient} bg-clip-text text-transparent transition-smooth bg-[length:200%_200%] animate-text-gradient opacity-0 animate-fade-in-scale`}
+        style={{ animationDelay: '0.3s' }}
+      >
         Pruuingoo
       </h1>
     </div>

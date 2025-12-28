@@ -30,10 +30,10 @@ const Index = () => {
               <SocialGrid />
               
               {/* Discord Button - Only show in portrait mode, under social grid */}
-              <div className="lg:hidden flex justify-center mt-6">
+              <div className="lg:hidden flex justify-center mt-6 opacity-0 animate-bounce-in" style={{ animationDelay: '1.5s' }}>
                 <Button
                   onClick={() => setDiscordModalOpen(true)}
-                  className="bg-[#5865f2] hover:bg-[#4752c4] text-white font-semibold px-6 py-3 rounded-full shadow-lg relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-b before:from-white/20 before:to-transparent before:pointer-events-none"
+                  className="bg-[#5865f2] hover:bg-[#4752c4] text-white font-semibold px-6 py-3 rounded-full shadow-lg relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-b before:from-white/20 before:to-transparent before:pointer-events-none btn-press transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(88,101,242,0.5)]"
                 >
                   <span className="hidden sm:inline relative z-10">Join Nytharc Discord Server</span>
                   <span className="sm:hidden relative z-10">Join Nytharc</span>
