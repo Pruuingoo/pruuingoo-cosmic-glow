@@ -54,10 +54,11 @@ const ProfileSection = () => {
 
       {/* Name with animated gradient */}
       <h1 
-        className={`text-4xl md:text-5xl font-bold font-gluten text-center bg-gradient-to-r ${colors.textGradient} bg-clip-text text-transparent transition-smooth bg-[length:200%_200%] animate-text-gradient opacity-0 animate-fade-in-scale`}
+        className={`text-4xl md:text-5xl font-bold font-gluten text-center bg-gradient-to-r ${colors.textGradient} bg-clip-text text-transparent transition-smooth bg-[length:200%_200%] animate-text-gradient animate-fade-in-scale`}
         style={{
           ...getParallaxStyle(parallaxOffset, 0.3),
           animationDelay: '0.3s',
+          animationFillMode: 'forwards',
         }}
       >
         Pruuingoo
