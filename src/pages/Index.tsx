@@ -3,6 +3,7 @@ import ParallaxBackground from '@/components/ParallaxBackground';
 import ProfileSection from '@/components/ProfileSection';
 import AboutSection from '@/components/AboutSection';
 import SocialGrid from '@/components/SocialGrid';
+import FeaturedTrack from '@/components/FeaturedTrack';
 import DiscordJoinModal from '@/components/DiscordJoinModal';
 import { Button } from '@/components/ui/button';
 
@@ -16,13 +17,14 @@ const Index = () => {
       
       {/* Main Content */}
       <div className="relative z-20 min-h-screen flex flex-col items-center justify-center px-4 py-16">
-        <div className="w-full max-w-6xl mx-auto">
+        <div className="w-full max-w-7xl mx-auto">
           {/* Desktop: Side by Side | Mobile: Stacked */}
           <div className="flex flex-col lg:flex-row lg:gap-8 lg:items-start">
-            {/* Left Side: Profile + About */}
+            {/* Left Side: Profile + About + Featured Track */}
             <div className="flex-1 lg:sticky lg:top-8">
               <ProfileSection />
               <AboutSection onDiscordClick={() => setDiscordModalOpen(true)} />
+              <FeaturedTrack />
             </div>
             
             {/* Right Side: Social Links */}
