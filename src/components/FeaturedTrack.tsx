@@ -22,11 +22,17 @@ const streamingLinks = [
   },
   { 
     name: 'Deezer', 
-    icon: 'https://cdn.simpleicons.org/deezer/ffffff', 
+    icon: null,
     url: 'https://deezer.com/track/3737778952',
     color: '#FF0092'
   },
 ];
+
+const DeezerIcon = () => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 text-white">
+    <path d="M18.81 4.16v3.03H24V4.16h-5.19zM6.27 8.38v3.027h5.189V8.38h-5.19zm12.54 0v3.027H24V8.38h-5.19zM6.27 12.594v3.027h5.189v-3.027h-5.19zm6.27 0v3.027h5.19v-3.027h-5.19zm6.27 0v3.027H24v-3.027h-5.19zM0 16.81v3.029h5.19v-3.03H0zm6.27 0v3.029h5.189v-3.03h-5.19zm6.27 0v3.029h5.19v-3.03h-5.19zm6.27 0v3.029H24v-3.03h-5.19z"/>
+  </svg>
+);
 
 const FeaturedTrack = () => {
   const { parallaxOffset } = useMouseParallax(0.5);
@@ -105,11 +111,15 @@ const FeaturedTrack = () => {
                   className="w-6 h-6 rounded-md flex items-center justify-center transition-all duration-300 group-hover/link:scale-110"
                   style={{ backgroundColor: link.color }}
                 >
-                  <img 
-                    src={link.icon} 
-                    alt={link.name}
-                    className="w-4 h-4"
-                  />
+                  {link.icon ? (
+                    <img 
+                      src={link.icon} 
+                      alt={link.name}
+                      className="w-4 h-4"
+                    />
+                  ) : link.name === 'Deezer' ? (
+                    <DeezerIcon />
+                  ) : null}
                 </div>
                 <span className="text-sm font-medium text-foreground/80 group-hover/link:text-foreground transition-colors">
                   {link.name}
