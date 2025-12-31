@@ -4,25 +4,25 @@ import trackCover from '@/assets/hiding-from-the-sheer-cover.jpg';
 const streamingLinks = [
   { 
     name: 'Spotify', 
-    icon: 'https://cdn.simpleicons.org/spotify/1DB954', 
+    icon: 'https://simpleicons.org/icons/spotify.svg', 
     url: 'https://open.spotify.com/track/3kpihIl0LXgFtzUS6rLCHP',
     color: '#1DB954'
   },
   { 
     name: 'YouTube Music', 
-    icon: 'https://cdn.simpleicons.org/youtubemusic/FF0000', 
+    icon: 'https://simpleicons.org/icons/youtubemusic.svg', 
     url: 'https://music.youtube.com/watch?v=Ad3Tn9ptK1E',
     color: '#FF0000'
   },
   { 
     name: 'Apple Music', 
-    icon: 'https://cdn.simpleicons.org/applemusic/FA243C', 
+    icon: 'https://simpleicons.org/icons/applemusic.svg', 
     url: 'https://music.apple.com/us/song/hiding-from-the-sheer/1864013502',
     color: '#FA243C'
   },
   { 
     name: 'Deezer', 
-    icon: 'https://cdn.simpleicons.org/deezer/A238FF', 
+    icon: 'https://simpleicons.org/icons/deezer.svg', 
     url: 'https://deezer.com/track/3737778952',
     color: '#A238FF'
   },
@@ -107,7 +107,7 @@ const FeaturedTrack = () => {
                   <img 
                     src={link.icon} 
                     alt={link.name}
-                    className="w-5 h-5"
+                    className="w-5 h-5 invert"
                   />
                 </div>
                 <span className="text-sm font-medium text-foreground/80 group-hover/link:text-foreground transition-colors">
