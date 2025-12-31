@@ -1,30 +1,35 @@
 import { useMouseParallax, getParallaxStyle } from '@/hooks/useMouseParallax';
 import trackCover from '@/assets/hiding-from-the-sheer-cover.jpg';
+import deezerIcon from '@/assets/deezer-icon.svg';
 
 const streamingLinks = [
   { 
     name: 'Spotify', 
     icon: 'https://simpleicons.org/icons/spotify.svg', 
     url: 'https://open.spotify.com/track/3kpihIl0LXgFtzUS6rLCHP',
-    color: '#1DB954'
+    color: '#1DB954',
+    invert: true
   },
   { 
     name: 'YouTube Music', 
     icon: 'https://simpleicons.org/icons/youtubemusic.svg', 
     url: 'https://music.youtube.com/watch?v=Ad3Tn9ptK1E',
-    color: '#FF0000'
+    color: '#FF0000',
+    invert: true
   },
   { 
     name: 'Apple Music', 
     icon: 'https://simpleicons.org/icons/applemusic.svg', 
     url: 'https://music.apple.com/us/song/hiding-from-the-sheer/1864013502',
-    color: '#FA243C'
+    color: '#FA243C',
+    invert: true
   },
   { 
     name: 'Deezer', 
-    icon: 'https://simpleicons.org/icons/deezer.svg', 
+    icon: deezerIcon, 
     url: 'https://deezer.com/track/3737778952',
-    color: '#A238FF'
+    color: '#A238FF',
+    invert: false
   },
 ];
 
@@ -107,7 +112,7 @@ const FeaturedTrack = () => {
                   <img 
                     src={link.icon} 
                     alt={link.name}
-                    className="w-5 h-5 invert"
+                    className={`w-5 h-5 ${link.invert ? 'invert' : ''}`}
                   />
                 </div>
                 <span className="text-sm font-medium text-foreground/80 group-hover/link:text-foreground transition-colors">
